@@ -29,6 +29,26 @@
             background-color: rgb(98, 147, 38);
             height: auto;
         }
+
+        .letraReconocimiento>h3 {
+            color: black;
+            padding: 0px;
+        }
+
+        .letraReconocimiento>h3:hover {
+            color: white;
+            text-shadow: 2px 2px 5px #CCCCCC;
+        }
+
+        body::-webkit-scrollbar {
+            width: 10px;
+            background: #24252a;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: rgb(98, 147, 38);
+            border-radius: 30px;
+        }
     </style>
 </head>
 
@@ -143,7 +163,7 @@
                 </div>
                 <div class="col-lg-6 pt-5 pb-lg-5">
                     <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
-                        <h6 class="text-bg-success text-uppercase" style="letter-spacing: 5px;">Sobre Nosotros</h6>
+                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Sobre Nosotros</h6>
                         <h1 class="mb-3">Adéntrate en un mundo de biodiversidad sin igual en Galápagos</h1>
                         <p>Galápagos Adventures es una empresa líder en turismo especializada en brindar experiencias
                             únicas en las increíbles Islas Galápagos. Con nuestro profundo amor y respeto por este
@@ -168,31 +188,97 @@
     <!-- Inicio Experiencia -->
     <div class="reconocimiento container-fluid">
         <div class="row">
-            <div class="exp negocio1 col-4">
-                <h3 class="fa fa-bank"> 99%</h3>
-                <h3>CLIENTES SATISFECHOS</h3>
+            <div class="col-lg-4 col-sm-12 mb-sm-3">
+                <div class="letraReconocimiento exp negocio1">
+                    <h3 class="fa fa-bank"> 99% CLIENTES SATISFECHOS</h3>
+                </div>
             </div>
-            <div class="exp negocio1 col-4">
-                <h3 class="fa fa-user"> +1000</h3>
-                <h3>CLIENTES ATENDIDOS</h3>
+            <div class="col-lg-4 col-sm-12 mb-sm-3">
+                <div class="letraReconocimiento exp negocio1">
+                    <h3 class="fa fa-coffee"> +1000 CLIENTES ATENDIDOS</h3>
+                </div>
             </div>
-            <div class="exp negocio1 col-4">
-                <h3 class="fa fa-coffee"> +5</h3>
-                <h3>AÑOS DE TRAYECTORIA</h3>
+            <div class="col-lg-4 col-sm-12 mb-sm-3">
+                <div class="letraReconocimiento exp negocio1">
+                    <h3 class="fa fa-coffee"> +5 AÑOS DE TRAYECTORIA</h3>
+                </div>
             </div>
         </div>
     </div>
     <!-- Fin Experiencia -->
 
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">ACTIVIDADES</h6>
+                <h1>Disfruta y conoce más de las Islas Galápagos</h1>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                    <div class="blog-item">
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="./Imagen/c1.jpg" alt="">
+                        </div>
+                        <div class="bg-white p-4">
+                            <div class="d-flex mb-2">
+                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours</a>
+                                <span class="text-primary px-2">|</span>
+                                <a class="text-primary text-uppercase text-decoration-none" href="">Playas y sol</a>
+                            </div>
+                            <a class="h5 m-0 text-decoration-none" href="">Visita las famosas playas de arena blanca</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                    <div class="blog-item">
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="./Imagen/c2.jpg" alt="">
+                        </div>
+                        <div class="bg-white p-4">
+                            <div class="d-flex mb-2">
+                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours</a>
+                                <span class="text-primary px-2">|</span>
+                                <a class="text-primary text-uppercase text-decoration-none" href="">Camina junto a
+                                    iguanas</a>
+                            </div>
+                            <a class="h5 m-0 text-decoration-none" href="">Observa especies endémicas únicas de las
+                                islas</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                    <div class="blog-item">
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="./Imagen/c3.jpg" alt="">
+                        </div>
+                        <div class="bg-white p-4">
+                            <div class="d-flex mb-2">
+                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours</a>
+                                <span class="text-primary px-2">|</span>
+                                <a class="text-primary text-uppercase text-decoration-none" href="">Observa aves</a>
+                            </div>
+                            <a class="h5 m-0 text-decoration-none" href="">Conoce a los piqueros de patas azules</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
     <!-- Footer Inicio -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
             <div class="col-lg-4 col-md-12 mb-5">
-                <a href="" class="navbar-brand">
-                    <h1 class="text-primary"><span class="text-white">TRAVEL</span>ER</h1>
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="text-primary"><span class="text-white">ZATH</span> TURISMO</h1>
                 </a>
-                <p>¡Prepárate para una aventura inolvidable en las Islas Galápagos! Explora, admira y maravíllate con
-                    la belleza incomparable de este destino único en el mundo.</p>
+                <p class="text-justify">¡Prepárate para una aventura inolvidable en las Islas Galápagos! Explora, admira
+                    y maravíllate
+                    con la belleza incomparable de este destino único en el mundo.</p>
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Síguenos en:</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
@@ -215,13 +301,15 @@
                 <p><i class="fa fa-phone-alt mr-2"></i>+593 6721 3611</p>
                 <p><i class="fa fa-envelope mr-2"></i>zathturismo@gmail.com</p>
             </div>
+
         </div>
     </div>
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
         style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
-            <div class="col-lg-12 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white-50">Copyright &copy; <a href="#">ZATH TURISMO</a>. Todos los derechos reservados.</a>
+            <div class="col-lg-12 text-center">
+                <p class="m-0 text-white-50">Copyright &copy; <a href="#">ZATH TURISMO</a>. Todos los derechos
+                    reservados.</a>
                 </p>
             </div>
         </div>
