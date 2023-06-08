@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <!--Favicon-->
+    <link rel="shortcut icon" href="img/favicon-32x32.png" type="image/x-icon">
     <!-- Google Web Fonts -->
      <link rel="preconnect" href="https://fonts.gstatic.com">
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,6 +20,24 @@
 <style>
 .text-primary {
     letter-spacing: 5px;
+}
+.info1{
+  text-align:justify;
+}
+.info2{
+  text-align: justify;
+}
+.info3{
+  text-align: justify;
+}
+.info4{
+  text-align: justify;
+}
+.info5{
+  text-align: justify;
+}
+.info6{
+  text-align: justify;
 }
 </style>
 <body>
@@ -52,32 +72,40 @@
 </div>
 
      <!--Inicio del Packages -->
+     <!-- Anchura Variable de los titulos py= es el padding vertical-->
      <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
         <div class="text-center mb-3 pb-3">
           <h6 class="text-primary text-uppercase">Packages</h6>
            <h1>Get your best package</h1>
         </div>
+      <!--Contenedor de los pakages-->
         <div class="row">
          <div class="col-lg-4 col-md-6 col-sm-12">
-           <div class="package-item bg-white mb-2">
-           <img class="img-fluid" src="img/isla1.jpg" alt="">
+           <div class="package-item bg-white mb-2"><!--package item tiene un hover y transicció-->
+           <img class="img-fluid" src="img/isla1.jpg" alt=""><!--Escala correctamente la imagen de acuerdo al contenedor-->
            <div class="p-4">
-              <div class="d-flex justify-content-between mb-3">
+              <div class="d-flex justify-content-between mb-3"><!--d-flex permite crear una fila horizontal-->
                 <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Galápagos</small>
                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 Días</small>
                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Personas</small>
            </div>
-           <a class="h6 text-decoration-none" href="">Descubre Isla Santa Cruz</a>
+           <!--texto subrayado-->
+           <a class="h6 accordion-info1 text-decoration-none">Descubre Isla Santa Cruz <i class="fas fa-chevron-down"></i><a>
            <div class="border-top mt-1 pt-2">
+           <!--Contenedor de botones y estrellas-->
            <div class="d-flex justify-content-between">
            <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
               <button class="btn btn-success mb-2" onclick="window.location.href='pagina-precio1.html'">$ 350</button>
            </div>
            </div>
            </div>
+            <!--Contenedor despegable-->
+           <div class="info1 ">
+            <p>Embárcate en un recorrido inolvidable por Isla Santa Cruz y descubre su flora y fauna únicas. Podrás observar tortugas gigantes en su hábitat natural, explorar increíbles senderos rodeados de vegetación exuberante y maravillarte con las playas de arena blanca y aguas cristalinas.</p>
            </div>
-        </div>
+           </div>
+           </div>
            <div class="col-lg-4 col-md-6 col-sm-12">
              <div class="package-item bg-white mb-2">
              <img class="img-fluid" src="img/isla2.jpg" alt="">
@@ -87,16 +115,19 @@
                   <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 Días</small>
                   <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Personas</small>
             </div>
-                <a class="h6 text-decoration-none" href="">Descubre Isla Isabela</a>
+                <a class="h6 accordion-info2 text-decoration-none">Descubre Isla Isabela <i class="fas fa-chevron-down"></i></a>
                 <div class="border-top mt-1 pt-2">
                   <div class="d-flex justify-content-between">
                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                  <button class="btn btn-success mb-2" onclick="window.location.href='pagina-precio1.html'">$ 350</button>
+                  <button class="btn btn-success mb-2" onclick="window.location.href='pagina-precio1.html'">$ 370</button>
                </div>
              </div>
            </div>
+           <div class="info2">
+            <p>Explora la diversidad de la Isla Isabela, con sus imponentes volcanes, lagunas de aguas turquesas y playas de arena blanca. Disfruta de impresionantes vistas panorámicas y captura fotografías que te dejarán sin aliento, siente la conexión con la naturaleza en su estado más puro.</p>
+           </div>
+          </div>
          </div>
-        </div>
              <div class="col-lg-4 col-md-6 col-sm-12">
                <div class="package-item bg-white mb-2">
                <img class="img-fluid" src="img/isla3.jpg" alt="">
@@ -106,16 +137,19 @@
                   <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 Días</small>
                   <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Personas</small>
               </div>
-                 <a class="h6 text-decoration-none" href="">Descubre Isla de San Cristóbal </a>
+                 <a class="h6 accordion-info3 text-decoration-none" >Descubre Isla de San Cristóbal <i class="fas fa-chevron-down"></i> </a>
                  <div class="border-top mt-1 pt-2">
                  <div class="d-flex justify-content-between">
                   <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                  <button class="btn btn-success mb-2" onclick="window.location.href='pagina-precio1.html'">$ 350</button>
+                  <button class="btn btn-success mb-2" onclick="window.location.href='pagina-precio1.html'">$ 250</button>
                   </div>
                  </div>
                </div>
+               <div class="info3">
+                <p>Admira la increíble variedad de especies que habitan en la Isla de San Cristóbal. Desde las famosas tortugas gigantes hasta leones marinos juguetones, podrás presenciar de cerca la riqueza de la fauna silvestre en su hábitat natural, relájate en las hermosas playas de arena blanca.</p>
+               </div>
+              </div>
              </div>
-           </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
                   <div class="package-item bg-white mb-2">
                   <img class="img-fluid" src="img/isla4.jpg" alt="">
@@ -125,13 +159,16 @@
                        <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 Días</small>
                        <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Personas</small>
                   </div>
-                <a class="h6 text-decoration-none" href="">Descubre Isla Floreana </a>
+                <a class="h6 accordion-info4 text-decoration-none">Descubre Isla Floreana <i class="fas fa-chevron-down"></i></a>
                 <div class="border-top mt-1 pt-2">
                     <div class="d-flex justify-content-between">
                     <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                    <button class="btn btn-success mb-2" onclick="window.location.href='pagina-precio1.html'">$ 350</button>
+                    <button class="btn btn-success mb-2" onclick="window.location.href='pagina-precio1.html'">$ 300</button>
                </div>
               </div>
+             </div>
+             <div class="info4">
+              <p>Sumérgete en las aguas cristalinas que rodean la Isla Floreana y descubre un mundo submarino lleno de vida, explora los arrecifes de coral, nada junto a coloridos peces tropicales y admira la diversidad marina que habita en esta área protegida, ven y disfrua de vistas impresionantes.</p>
              </div>
             </div>
            </div>
@@ -144,7 +181,7 @@
                  <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 Días</small>
                  <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Personas</small>
             </div>
-          <a class="h6 text-decoration-none" href="">Descubre Isla Española </a>
+          <a class="h6 accordion-info5 text-decoration-none">Descubre Isla Española <i class="fas fa-chevron-down"></i></a>
           <div class="border-top mt-1 pt-2">
               <div class="d-flex justify-content-between">
               <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -152,8 +189,11 @@
             </div>
            </div>
           </div>
+          <div class="info5">
+          <p> Ven y conoce uno de los mejores lugares del mundo para observar aves, aquí podrás presenciar el famoso ritual de cortejo de los albatros de Galápagos, así como otras especies endémicas como los piqueros de patas azules y los cormoranes no voladores.</p>
          </div>
-        </div>
+          </div>
+           </div>
         <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="package-item bg-white mb-2">
             <img class="img-fluid" src="img/isla6.jpg" alt="">
@@ -163,14 +203,16 @@
                  <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 Días</small>
                  <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Personas</small>
             </div>
-          <a class="h6 text-decoration-none" href="">Descubre Isla Santiago</a>
+          <a class="h6 accordion-info6 text-decoration-none" >Descubre Isla Santiago  <i class="fas fa-chevron-down"></i></a>
           <div class="border-top mt-1 pt-2">
               <div class="d-flex justify-content-between">
               <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-              <button class="btn btn-success mb-2" onclick="window.location.href='pagina-precio1.html'">$ 350</button>
+              <button class="btn btn-success mb-2" onclick="window.location.href='pagina-precio1.html'">$ 375</button>
             </div>
            </div>
           </div>
+          <div class="info6">
+            <p>Camina por los senderos de la isla y descubre la belleza de su paisaje volcánico, explora la zona de Sullivan Bay, donde podrás admirar la impresionante lava solidificada y observar la regeneración de la flora y fauna tras las erupciones volcánicas.</p>
          </div>
         </div>     
 </body>
