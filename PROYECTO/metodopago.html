@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+     <!--Favicon-->
+     <link rel="shortcut icon" href="img/favicon-32x32.png" type="image/x-icon">
+     <!-- Google Web Fonts -->
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+     <!-- Libraries Stylesheet -->
+     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />  
+     <!-- Font Awesome -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <title>Contáctanos</title>
+    <style>
+        .text-primary{
+            color: #7AB730 !important;
+        }
+        .text-uppercase{
+            text-transform: uppercase !important;
+        }
+        .bg-white{
+            background-color: #fcf9f9 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!--Inicio de formulario-->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <!-- Resto del contenido -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form bg-white" style="padding: 30px;">
+                        <!-- Resto del contenido -->
+                        <form action="#" name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <!-- Resto del contenido -->
+                            <div class="form-row">
+                                <div class="col-sm-6 form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" class="form-control p-4" id="nombre" placeholder="Nombre" required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label for="apellido">Apellido</label>
+                                    <input type="text" class="form-control p-4" id="apellido" placeholder="Apellido" required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="direccion">Dirección de facturación</label>
+                                <input type="text" class="form-control p-4" id="direccion" placeholder="Dirección" required="required">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-sm-6 form-group">
+                                    <label for="ciudad">Ciudad</label>
+                                    <input type="text" class="form-control p-4" id="ciudad" placeholder="Ciudad" required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label for="codigoPostal">Código Postal</label>
+                                    <input type="text" class="form-control p-4" id="codigoPostal" placeholder="Código Postal" required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pais">País</label>
+                                <input type="text" class="form-control p-4" id="pais" placeholder="País" required="required">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-sm-6 form-group">
+                                    <label for="numeroTarjeta">Número de Tarjeta</label>
+                                    <input type="text" class="form-control p-4" id="numeroTarjeta" placeholder="Número de Tarjeta" required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label for="vencimiento">Fecha de Vencimiento</label>
+                                    <input type="text" class="form-control p-4" id="vencimiento" placeholder="MM/AA" required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" class="form-control p-4" id="cvv" placeholder="CVV" required="required">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="monto">Monto a Pagar</label>
+                                <input type="text" class="form-control p-4" id="monto" placeholder="Monto a Pagar" required="required">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="metodoPago">Método de Pago</label>
+                                <select class="form-control" id="metodoPago" required="required">
+                                    <option value="">Seleccionar método de pago</option>
+                                    <option value="tarjeta">Tarjeta de Crédito</option>
+                                    <option value="paypal">PayPal</option>
+                                    <option value="transferencia">Transferencia Bancaria</option>
+                                </select>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Pagar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin de formulario-->
