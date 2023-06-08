@@ -7,6 +7,7 @@
     <title>Contáctanos</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link rel="shortcut icon" href="imagenes/favicon-32x32.png" type="image/x-icon">
 
     <style>
         .text-primary{
@@ -50,6 +51,12 @@
                             <div class="control-group">
                                 <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
                                     required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
+                                    required="required"
+                                    data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </form>
