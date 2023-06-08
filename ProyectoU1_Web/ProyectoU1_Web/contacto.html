@@ -59,8 +59,17 @@
                                     data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="monto" placeholder="Monto a Pagar" required="required" 
+                            <div class="form-row">
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control py-3 px-4" id="vencimiento" placeholder="MM/AA">
+                                </div>
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control py-3 px-4" id="cvv" placeholder="CVV" required="required" 
+                                  data-validation-required-message="Please enter a CVV">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control py-3 px-4" id="monto" placeholder="Monto a Pagar" required="required" 
                                 data-validation-required-message="Please enter a monto">
                               </div>
                             <div class="text-center">
