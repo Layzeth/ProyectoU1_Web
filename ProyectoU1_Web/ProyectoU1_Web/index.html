@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Formulario de Pago</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2>Formulario de Pago</h2>
+        <form>
+          <div class="form-group">
+            <label for="nombre">Nombre en la Tarjeta</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre en la Tarjeta">
+          </div>
+          <div class="form-group">
+            <label for="numero">Número de Tarjeta</label>
+            <input type="text" class="form-control" id="numero" placeholder="Número de Tarjeta">
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <label for="vencimiento">Fecha de Vencimiento</label>
+              <input type="text" class="form-control" id="vencimiento" placeholder="MM/AA">
+            </div>
+            <div class="col">
+              <label for="cvv">CVV</label>
+              <input type="text" class="form-control" id="cvv" placeholder="CVV">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="monto">Monto a Pagar</label>
+            <input type="text" class="form-control" id="monto" placeholder="Monto a Pagar">
+          </div>
+          <button type="submit" class="btn btn-primary">Pagar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
