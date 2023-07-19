@@ -130,9 +130,16 @@
             transform: scale(1.05);
             /* Zoom al 105% al pasar el mouse por encima */
         }
+
+        .text-animation {
+            transition: font-size 0.5s ease;
+        }
     </style>
 
     <script>
+        $(function () {
+            $("body").hide().fadeIn(1000);
+        });
         // Menu desplegable
         $(document).ready(function () {
             $('#menu').hover(function () {
@@ -221,6 +228,25 @@
                 $(this).css('transform', 'scale(1)');
             });
         });
+
+        // Animación de texto de logo
+        $(document).ready(function () {
+            function animateText() {
+                $('.text-animation').each(function () {
+                    $(this).animate({
+                        'font-size': '+=2px'
+                    }, 1500, function () {
+                        // Luego de 1.5 segundos, regresar al tamaño original y cambiar el color nuevamente
+                        $(this).animate({
+                            'font-size': '-=2px'
+                        }, 1500);
+                    });
+                });
+            }
+
+            // Llama a la función cada 3 segundos para realizar la animación en bucle
+            setInterval(animateText, 3000); // Cambiar cada 3 segundos (3000 milisegundos)
+        });
     </script>
 </head>
 
@@ -262,11 +288,12 @@
     <!-- Final Barra informativa -->
 
     <!-- Inicio Barra Navegación -->
-    <div class="container-fluid position-relative nav-bar p-0">
+    <div class="menunav container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
-                    <h1 class="m-0 text-primary"><span class="text-dark">ZATH </span>TURISMO</h1>
+                    <h1 class="m-0 text-primary text-animation"><span class="text-dark text-animation">ZATH
+                        </span>TURISMO</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
