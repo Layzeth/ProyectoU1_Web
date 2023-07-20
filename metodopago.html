@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <!--Favicon-->
+    <link rel="shortcut icon" href="./Imagen/favicon.png" type="image/x-icon">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <title>ZATH | Método de Pago</title>
+    <style>
+        .text-primary {
+            color: #7AB730 !important;
+        }
+
+        .text-uppercase {
+            text-transform: uppercase !important;
+        }
+
+        .bg-white {
+            background-color: #fcf9f9 !important;
+        }
+
+        .titulo {
+            margin-top: 30px;
+            margin-bottom: 0px;
+        }
+    </style>
+    <script src="javascript/jQuery v3.7.js"></script>
+    <script>
+    $(document).ready(function () {
+        $("#contactForm").submit(function (event) {
+            event.preventDefault();
+        // Validación del formulario
+        var nombre = $("#nombre").val();
+        var apellido = $("#apellido").val();
+        var ciudad = $("#ciudad").val();
+        var codigoPostal = $("#codigoPostal").val();
+        var pais = $("#pais").val();
+        var numeroTarjeta = $("#numeroTarjeta").val();
+        var cvv = $("#cvv").val();
+        var monto = $("#monto").val();
+
+        // Función para mostrar mensajes de error
+        function mostrarError(campo, mensaje) {
+          $(campo).next(".help-block").text(mensaje);
+        }
+
+        // Restablecer mensajes de error previos
+        $(".help-block").text("");
+
+        // Validar campos obligatorios
+        if (nombre === "") {
+          mostrarError("#nombre", "Por favor, ingrese su nombre.");
+          return;
+        }
+        if (apellido === "") {
+          mostrarError("#apellido", "Por favor, ingrese su apellido.");
+          return;
+        }
+        if (ciudad === "") {
+          mostrarError("#ciudad", "Por favor, ingrese su ciudad.");
+          return;
+        }
+        if (codigoPostal === "") {
+          mostrarError("#codigoPostal", "Por favor, ingrese su código postal.");
+          return;
+        }
+        if (pais === "") {
+          mostrarError("#pais", "Por favor, ingrese su país.");
+          return;
+        }
+
+        // Validar que los campos de nombre, apellido y ciudad contengan solo letras y espacios
+        var regexLetrasEspacios = /^[A-Za-z\s]+$/;
+        if (!regexLetrasEspacios.test(nombre)) {
+          mostrarError("#nombre", "El nombre solo debe contener solo letras.");
+          return;
+        }
+        if (!regexLetrasEspacios.test(apellido)) {
+          mostrarError("#apellido", "El apellido solo debe contener solo letras.");
+          return;
+        }
+        if (!regexLetrasEspacios.test(ciudad)) {
+          mostrarError("#ciudad", "La ciudad solo debe contener solo letras.");
+          return;
+        }
+
+        // Validar que los campos de número de tarjeta, vencimiento, CVV y monto sean números
+        var regexNumeros = /^\d+$/;
+        if (!regexNumeros.test(numeroTarjeta)) {
+          mostrarError("#numeroTarjeta", "El número de tarjeta debe contener solo números.");
+          return;
+        }
+        if (!regexNumeros.test(cvv)) {
+          mostrarError("#cvv", "El CVV debe contener solo números.");
+          return;
+        }
+        if (!regexNumeros.test(monto)) {
+          mostrarError("#monto", "El monto a pagar debe contener solo números.");
+          return;
+        }
+
+            // Validar número de tarjeta
+            if (numeroTarjeta === "" || isNaN(numeroTarjeta) || !validarTarjeta(numeroTarjeta)) {
+                mostrarError("#numeroTarjeta", "Por favor, ingrese un número de tarjeta válido.");
+                return;
+            }
+
+            // Generar dígito auto-verificador (mantenemos esta parte del código)
+            var digits = numeroTarjeta.split("").map(Number);
+            var sum = 0;
+            // ...
+
+            // Determinar tipo de tarjeta (mantenemos esta parte del código)
+            var firstDigit = parseInt(numeroTarjeta.charAt(0));
+            var tipo = "";
+            // ...
+
+            // Mostrar mensaje de éxito (opcional)
+            alert("¡Pago realizado con éxito!");
+
+            // Aquí puedes agregar cualquier otra acción que desees realizar después de realizar el pago
+
+            // Envío del formulario (opcional, si deseas enviar los datos a un servidor)
+            // $("#contactForm")[0].submit();
+        });
+
+        // Función para validar el número de tarjeta utilizando el algoritmo de Luhn
+        function validarTarjeta(numeroTarjeta) {
+            var digits = numeroTarjeta.split("").map(Number);
+            var sum = 0;
+            var shouldDouble = false;
+
+            for (var i = digits.length - 1; i >= 0; i--) {
+                var digit = digits[i];
+
+                if (shouldDouble) {
+                    digit *= 2;
+                    if (digit > 9) {
+                        digit -= 9;
+                    }
+                }
+
+                sum += digit;
+                shouldDouble = !shouldDouble;
+            }
+
+            return sum % 10 === 0;
+        }
+    });
+</script>
+</head>
+<body>
+    <!-- Fondo Inicio -->
+    <div class="container-fluid page-header">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                <h3 class="display-4 text-white text-uppercase">Método de pago</h3>
+                <div class="d-inline-flex text-white">
+                    <p class="m-0 text-uppercase"><a class="text-white" href="packages.html">Paquetes</a></p>
+                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                    <p class="m-0 text-uppercase">Método de pago</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fondo Fin -->
+
+    <!--Inicio de formulario-->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="titulo text-center mb-3 pb-3">
+                <h6 class="text-primary text-uppercase">Método de Pago</h6>
+                <h1>Obtén los mejores paquetes</h1>
+            </div>
+            <!-- Resto del contenido -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form bg-white" style="padding: 30px;">
+                        <!-- Resto del contenido -->
+                        <form action="#" name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <!-- Resto del contenido -->
+                            <div class="form-row">
+                                <div class="col-sm-6 form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" class="form-control p-4" id="nombre" placeholder="Nombre"
+                                        required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label for="apellido">Apellido</label>
+                                    <input type="text" class="form-control p-4" id="apellido" placeholder="Apellido"
+                                        required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-sm-6 form-group">
+                                    <label for="ciudad">Ciudad</label>
+                                    <input type="text" class="form-control p-4" id="ciudad" placeholder="Ciudad"
+                                        required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label for="codigoPostal">Código Postal</label>
+                                    <input type="text" class="form-control p-4" id="codigoPostal"
+                                        placeholder="Código Postal" required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pais">País</label>
+                                <input type="text" class="form-control p-4" id="pais" placeholder="País"
+                                    required="required">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-sm-6 form-group">
+                                    <label for="numeroTarjeta">Número de Tarjeta</label>
+                                    <input type="number" class="form-control p-4" id="numeroTarjeta"
+                                        placeholder="Número de Tarjeta" required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="number" class="form-control p-4" id="cvv" placeholder="CVV"
+                                        required="required">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="monto">Monto a Pagar</label>
+                                <input type="number" class="form-control p-4" id="monto" placeholder="Monto a Pagar"
+                                    required="required">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Pagar</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin de formulario-->
+    <!-- Footer Inicio -->
+    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+        <div class="row pt-5">
+            <div class="col-lg-4 col-md-12 mb-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="text-primary"><span class="text-white">ZATH</span> TURISMO</h1>
+                </a>
+                <p class="text-justify">¡Prepárate para una aventura inolvidable en las Islas
+                    Galápagos! Explora, admira
+                    y maravíllate
+                    con la belleza incomparable de este destino único en el mundo.</p>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">
+                    Síguenos en:</h6>
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Nuestros
+                    servicios</h5>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Paquetes</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Actividades</a>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Servicios</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">
+                    Contáctanos</h5>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Santo Domingo, Ecuador</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+593 6721 3611</p>
+                <p><i class="fa fa-envelope mr-2"></i>zathturismo@gmail.com</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p class="m-0 text-white-50">Copyright &copy; <a href="#">ZATH TURISMO</a>.
+                    Todos los derechos
+                    reservados.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Fin -->
+</body>
+
+</html>
