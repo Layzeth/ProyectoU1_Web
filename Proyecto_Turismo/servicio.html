@@ -16,18 +16,6 @@
   <!-- Google Web Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- JavaScript -->
-  <script src="./JavaScript/jQuery v3.7.0.js"></script>
-  <!-- JavaScript Easing-->
-  <script src="./JavaScript/jQuery Easing.js"></script>
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- Slick Carousel -->
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
   <style>
     body::-webkit-scrollbar {
       width: 10px;
@@ -38,143 +26,7 @@
       background-color: rgb(98, 147, 38);
       border-radius: 30px;
     }
-
-    #palabra {
-      padding: 10px;
-      background-color: rgb(98, 147, 38);
-      color: white;
-      font-size: 22px;
-    }
-
-    /* Estilos para el zoom */
-    .tarjeta {
-      height: 500px;
-      transition: transform 0.3s ease;
-    }
-
-    .tarjeta:hover {
-      transform: scale(1.15);
-      z-index: 1;
-      position: relative;
-    }
-
-    /* Estilos para opacar las otras tarjetas */
-    .row:hover .tarjeta:not(:hover) {
-      opacity: 0.5;
-    }
-
-    .carousel-container {
-      max-width: 600px;
-      margin: 0 auto;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .carousel {
-      display: flex;
-      transition: transform 0.3s ease;
-    }
-
-    .slide {
-      flex: 0 0 100%;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    .carousel-nav {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .prev-btn,
-    .next-btn {
-      background-color: #333;
-      color: white;
-      border: none;
-      font-size: 20px;
-      padding: 10px 15px;
-      cursor: pointer;
-      margin: 0 5px;
-    }
-
-    /* Oculta el carrusel con la clase hidden-carousel */
-    .hidden-carousel {
-      display: none;
-    }
   </style>
-  <script>
-    $(document).ready(function () {
-      function addShadow() {
-        $("#palabra").css("text-shadow", "3px 3px 5px rgba(255, 255, 255, 0.8)");
-        setTimeout(removeShadow, 1000); // Quita la sombra después de 1 segundo
-      }
-
-      function removeShadow() {
-        $("#palabra").css("text-shadow", "none");
-      }
-
-      setInterval(addShadow, 2000); // Llama a la función cada 5 segundos
-    });
-
-    /*Zoom de las imagenes*/
-    $(document).ready(function () {
-      $(".tarjeta").mouseenter(function () {
-        $(this).siblings(".tarjeta").css("opacity", "0.5");
-      });
-
-      $(".tarjeta").mouseleave(function () {
-        $(this).siblings(".tarjeta").css("opacity", "1");
-      });
-    });
-
-    /*Carrusel de imagenes*/
-    $(document).ready(function () {
-      const carousel = $(".carousel");
-      const slideWidth = $(".slide").outerWidth();
-      const totalSlides = $(".slide").length;
-      let currentPosition = 0;
-
-      function moveToSlide(position) {
-        carousel.css("transform", `translateX(${position}px)`);
-      }
-
-      $(".next-btn").click(function () {
-        currentPosition -= slideWidth;
-        if (currentPosition < -(slideWidth * (totalSlides - 1))) {
-          currentPosition = 0;
-        }
-        moveToSlide(currentPosition);
-      });
-
-      $(".prev-btn").click(function () {
-        currentPosition += slideWidth;
-        if (currentPosition > 0) {
-          currentPosition = -(slideWidth * (totalSlides - 1));
-        }
-        moveToSlide(currentPosition);
-      });
-
-      function autoSlide() {
-        currentPosition -= slideWidth;
-        if (currentPosition < -(slideWidth * (totalSlides - 1))) {
-          currentPosition = 0;
-        }
-        moveToSlide(currentPosition);
-      }
-
-      // Cambia la imagen cada 3 segundos (3000ms)
-      setInterval(autoSlide, 5000);
-
-      // Oculta el carrusel al hacer clic en la tarjeta del medio
-      $(".tarjeta:nth-child(2) a").click(function (event) {
-        event.preventDefault();
-        carouselContainer.toggleClass("hidden-carousel");
-      });
-    });
-
-  </script>
 </head>
 
 <body>
@@ -253,7 +105,6 @@
   <!-- Fondo Fin -->
 
   <!-- Inicion de los servicios -->
-  <marquee id="palabra">OFERTA DE VIAJE A GALÁPAGOS 50% DE DESCUENTO A ECUATORIANOS</marquee>
   <div class="container-fluid py-5">
     <div class="container pt-5 pb-3">
       <div class="text-center mb-3 pb-3">
@@ -262,10 +113,10 @@
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-6 mb-4">
-          <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4">
+          <div class="service-item bg-white text-center mb-2 py-5 px-4">
             <a href="https://www.es.kayak.com/vuelos/Estados-Unidos-US0/Galapagos-ECGA?bootRetry=true&r9ck=iq&gad=1&gclid=CjwKCAjw1YCkBhAOEiwA5aN4AaO1nuYHQp8704qSYBrpbHcnlp0rsq0z4vhpHvhKv4KwxhTtZrYSaBoCBM4QAvD_BwE"
               target="_blank">
-              <img src="./Imagen/boloeto.jpg" alt="boletos" style="height: 250px; width: 275px;">
+              <img src="./Imagen/boloeto.jpg" alt="boletos" style="height: 202px;">
             </a>
             <h5 class="mb-2">Boleto de entrada</h5>
             <p class="m-0">JReserva Flexible y Precios Sorprendentes. Compra tu Proximo Pasaje en Meses Sin Intereses.
@@ -273,8 +124,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-6 mb-4">
-          <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4">
-            <a>
+          <div class="service-item bg-white text-center mb-2 py-5 px-4">
+            <a href="">
               <img src="./Imagen/guia.jpg" alt="guia turistica" style="height:250px;">
             </a>
             <h5 class="mb-2">Guia turismo</h5>
@@ -283,10 +134,10 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-6 mb-4">
-          <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4">
+          <div class="service-item bg-white text-center mb-2 py-5 px-4">
             <a href="https://www.tripadvisor.com.ar/SmartDeals-g294310-Galapagos_Islands-Hotel-Deals.html"
               target="_blank">
-              <img src="./Imagen/hotel.jpg" alt="hotel" style="height:250px; width: 250px;">
+              <img src="./Imagen/hotel.jpg" alt="hotel">
             </a>
             <h5 class="mb-2">Reservacion de Hotel</h5>
             <p class="m-0">Grandes descuentos en hoteles de Galápagos, ec. Reserva online, paga en el hotel.
@@ -296,21 +147,7 @@
       </div>
     </div>
   </div>
-  <!--Inicio de los servicios  -->
-
-  <!--Inicio de carrusel  -->
-  <div class="carousel-container">
-    <div class="carousel">
-      <div class="slide"><img src="./Imagen/c1.jpg" alt="Imagen 1"></div>
-      <div class="slide"><img src="./Imagen/c2.jpg" alt="Imagen 2"></div>
-      <div class="slide"><img src="./Imagen/c3.jpg" alt="Imagen 3"></div>
-    </div>
-    <div class="carousel-nav">
-      <button class="prev-btn">&#10094;</button>
-      <button class="next-btn">&#10095;</button>
-    </div>
-  </div>
-  <!-- Final de carrusel  -->
+  <!--Inicion de los servicios  -->
 
   <!-- Footer Inicio -->
   <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
