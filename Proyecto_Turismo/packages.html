@@ -17,47 +17,98 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <title>ZATH | Paquetes</title>
+    <style>
+        .text-primary {
+            letter-spacing: 5px;
+        }
+    
+        .info1 {
+            text-align: justify;
+        }
+    
+        .info2 {
+            text-align: justify;
+        }
+    
+        .info3 {
+            text-align: justify;
+        }
+    
+        .info4 {
+            text-align: justify;
+        }
+    
+        .info5 {
+            text-align: justify;
+        }
+    
+        .info6 {
+            text-align: justify;
+        }
+    
+        body::-webkit-scrollbar {
+            width: 10px;
+            background: #24252a;
+        }
+    
+        body::-webkit-scrollbar-thumb {
+            background-color: rgb(98, 147, 38);
+            border-radius: 30px;
+        }
+          /* Agrega las animaciones CSS */
+          .animate-in {
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+        }
+        /* Agrega animación a la imagen en el hover */
+        .img-fluid:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .fade-in-image {
+        opacity: 0;
+        transition: opacity 1.7s ease;
+    }
+    </style>
+      <script src="javascript/jQuery v3.7.js"></script>
+      <script>
+          $(document).ready(function() {
+              // Ocultar todos los párrafos al cargar la página
+              $('.info1, .info2, .info3, .info4, .info5, .info6').hide();
+  
+              // Manejar clics en los nombres de las islas
+              $('.accordion-info1').click(function() {
+                  $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+                  $('.info1').slideToggle();
+              });
+              $('.accordion-info2').click(function() {
+                  $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+                  $('.info2').slideToggle();
+              });
+              $('.accordion-info3').click(function() {
+                  $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+                  $('.info3').slideToggle();
+              });
+              $('.accordion-info4').click(function() {
+                $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+                $('.info4').slideToggle();
+            });
+            $('.accordion-info5').click(function() {
+                $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+                $('.info5').slideToggle();
+            });
+            $('.accordion-info6').click(function() {
+                $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+                $('.info6').slideToggle();
+            });
+             // Agregar la clase de animación a las imágenes
+             $('.img-fluid').addClass('animate-in');
+             $(".fade-in-image").animate({ opacity: 1 }, 1500);
+    });
+    </script>
+  </body>
+  </html>
 </head>
-<style>
-    .text-primary {
-        letter-spacing: 5px;
-    }
-
-    .info1 {
-        text-align: justify;
-    }
-
-    .info2 {
-        text-align: justify;
-    }
-
-    .info3 {
-        text-align: justify;
-    }
-
-    .info4 {
-        text-align: justify;
-    }
-
-    .info5 {
-        text-align: justify;
-    }
-
-    .info6 {
-        text-align: justify;
-    }
-
-    body::-webkit-scrollbar {
-        width: 10px;
-        background: #24252a;
-    }
-
-    body::-webkit-scrollbar-thumb {
-        background-color: rgb(98, 147, 38);
-        border-radius: 30px;
-    }
-</style>
-
 <body>
     <!-- Inicio Barra informativa -->
     <div class="container-fluid bg-light pt-3 d-none d-lg-block">
@@ -145,7 +196,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="package-item bg-white mb-2"><!--package item tiene un hover y transicció-->
-                        <img class="img-fluid" src="./Imagen/isla1.jpg"
+                        <img class="img-fluid fade-in-image" src="./Imagen/isla1.jpg"
                             alt=""><!--Escala correctamente la imagen de acuerdo al contenedor-->
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
@@ -169,7 +220,7 @@
                                     </div>
                         </div>
                         <!--Contenedor despegable-->
-                        <div class="info1 ">
+                        <div class="info1 p-4">
                             <p>Embárcate en un recorrido inolvidable por Isla Santa Cruz y descubre su flora y fauna
                                 únicas. Podrás observar tortugas gigantes en su hábitat natural, explorar increíbles
                                 senderos rodeados de vegetación exuberante y maravillarte con las playas de arena blanca
@@ -179,7 +230,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="./Imagen/isla2.jpg" alt="">
+                        <img class="img-fluid fade-in-image" src="./Imagen/isla2.jpg" alt="">
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
                                 <small class="m-0"><i
@@ -197,7 +248,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="info2">
+                        <div class="info2 p-4">
                             <p>Explora la diversidad de la Isla Isabela, con sus imponentes volcanes, lagunas de aguas
                                 turquesas y playas de arena blanca. Disfruta de impresionantes vistas panorámicas y
                                 captura fotografías que te dejarán sin aliento, siente la conexión con la naturaleza en
@@ -207,7 +258,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="./Imagen/isla3.jpg" alt="">
+                        <img class="img-fluid fade-in-image" src="./Imagen/isla3.jpg" alt="">
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
                                 <small class="m-0"><i
@@ -225,7 +276,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="info3">
+                        <div class="info3 p-4">
                             <p>Admira la increíble variedad de especies que habitan en la Isla de San Cristóbal. Desde
                                 las famosas tortugas gigantes hasta leones marinos juguetones, podrás presenciar de
                                 cerca la riqueza de la fauna silvestre en su hábitat natural, relájate en las hermosas
@@ -235,7 +286,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="./Imagen/isla4.jpg" alt="">
+                        <img class="img-fluid fade-in-image" src="./Imagen/isla4.jpg" alt="">
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
                                 <small class="m-0"><i
@@ -253,7 +304,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="info4">
+                        <div class="info4 p-4">
                             <p>Sumérgete en las aguas cristalinas que rodean la Isla Floreana y descubre un mundo
                                 submarino lleno de vida, explora los arrecifes de coral, nada junto a coloridos peces
                                 tropicales y admira la diversidad marina que habita en esta área protegida, ven y
@@ -263,7 +314,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="./Imagen/isla5.jpg" alt="">
+                        <img class="img-fluid fade-in-image" src="./Imagen/isla5.jpg" alt="">
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
                                 <small class="m-0"><i
@@ -281,7 +332,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="info5">
+                        <div class="info5 p-4">
                             <p> Ven y conoce uno de los mejores lugares del mundo para observar aves, aquí podrás
                                 presenciar el famoso ritual de cortejo de los albatros de Galápagos, así como otras
                                 especies endémicas como los piqueros de patas azules y los cormoranes no voladores.</p>
@@ -290,7 +341,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="./Imagen/isla6.jpg" alt="">
+                        <img class="img-fluid fade-in-image" src="./Imagen/isla6.jpg" alt="">
                         <div class="p-4">
                             <div class="d-flex justify-content-between mb-3">
                                 <small class="m-0"><i
@@ -308,7 +359,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="info6">
+                        <div class="info6 p-4">
                             <p>Camina por los senderos de la isla y descubre la belleza de su paisaje volcánico, explora
                                 la zona de Sullivan Bay, donde podrás admirar la impresionante lava solidificada y
                                 observar la regeneración de la flora y fauna tras las erupciones volcánicas.</p>
