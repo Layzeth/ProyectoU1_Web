@@ -10,10 +10,12 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- Iconos | Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="./JavaScript/jQuery v3.7.0.js"></script>
+    <script src="./JavaScript/jQuery Easing.js"></script>
     <title>ZATH | Contacto</title>
     <style>
         .text-primary {
@@ -43,7 +45,132 @@
                 display: none;
             }
         }
+
+        /*Menu desplegable*/
+        #menu {
+            width: 150px;
+            background-color: rgb(98, 147, 38);
+            border-radius: 0px 60px 60px 0px;
+            padding: 20px 20px 20px 8px;
+            position: fixed;
+            z-index: 100;
+            left: -130px;
+        }
+
+        #menu a {
+            color: white;
+        }
+
+        #menu a:hover {
+            font-weight: bold;
+            text-decoration: none;
+            transition: text-decoration 0.3s ease;
+        }
+
+        .menu-des {
+            line-height: 70px;
+        }
+
+        .menu-item a {
+            position: relative;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+        }
+
+        .menu-item a:hover,
+        .menu-item a:focus {
+            color: rgba(255, 255, 255, 0.4);
+            outline: none;
+        }
+
+        .menu-item a:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ffffff;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: 0.3s;
+        }
+
+        .menu-item a:hover:before,
+        .menu-item a:focus:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
     </style>
+    <script>
+        $(function () {
+            $("body").hide().fadeIn(1000);
+        });
+        // Menu desplegable
+        $(document).ready(function () {
+            $('#menu').hover(function () {
+                $(this).stop().animate({
+                    left: "0px",
+                }, 500, 'easeInBack');
+            }, function () {
+                $(this).stop().animate({
+                    left: "-130px",
+                }, 800, 'easeOutBack');
+            });
+        });
+        $(document).ready(function () {
+            $("#contactForm").submit(function (event) {
+                event.preventDefault();
+                validateForm();
+            });
+
+            function validateForm() {
+                const nameInput = $("#name");
+                const emailInput = $("#email");
+                const subjectInput = $("#subject");
+                const messageInput = $("#message");
+
+                // Verificar si los campos están vacíos
+                if (nameInput.val().trim() === '' || emailInput.val().trim() === '' || subjectInput.val().trim() === '' || messageInput.val().trim() === '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Por favor, completa todos los campos.'
+                    })
+                    return;
+                }
+
+                // Verificar si el nombre contiene números
+                const nameRegex = /^[a-zA-Z\s]+$/;
+                if (!nameRegex.test(nameInput.val())) {
+                    Swal.fire('El nombre no puede contener números.')
+                    return;
+                }
+
+                // Verificar si el correo es válido
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.val())) {
+                    Swal.fire('Por favor, ingresa un correo válido.')
+                    return;
+                }
+
+                // Si todos los campos están válidos, puedes enviar el formulario aquí
+                // Agregar la lógica para enviar el formulario al servidor, si es necesario
+
+                // Mostrar una alerta de éxito (puedes personalizarla según tus necesidades)
+                Swal.fire(
+                    '¡Excelente!',
+                    '¡Formulario enviado con éxito!',
+                    'success'
+                )
+                // O puedes enviar el formulario al servidor aquí utilizando AJAX si es necesario
+
+                // Restablecer el formulario después de enviar
+                $("#contactForm")[0].reset();
+            }
+        });
+    </script>
+
 </head>
 
 <body>
@@ -94,17 +221,42 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                        <a href="index.html" class="nav-item nav-link ">Inicio</a>
                         <a href="packages.html" class="nav-item nav-link">Paquetes</a>
                         <a href="actividad.html" class="nav-item nav-link">Actividades</a>
                         <a href="servicio.html" class="nav-item nav-link">Servicios</a>
-                        <a href="contacto.html" class="nav-item nav-link">Contacto</a>
+                        <a href="contacto.html" class="nav-item nav-link active">Contacto</a>
                     </div>
                 </div>
             </nav>
         </div>
     </div>
     <!-- Inicio Barra Navegación -->
+
+    <!-- Inicio Menú desplegable -->
+    <div id="menu">
+        <div class="menu-item">
+            <i class="fa-solid fa-house" style="color: white;"></i>
+            <a class="menu-des" href="index.html">Inicio</a>
+        </div>
+        <div class="menu-item">
+            <i class="fa-solid fa-box-open" style="color: white;"></i>
+            <a class="menu-des" href="packages.html">Paquetes</a>
+        </div>
+        <div class="menu-item">
+            <i class="fa-solid fa-star" style="color: white;"></i>
+            <a class="menu-des" href="actividad.html">Actividades</a>
+        </div>
+        <div class="menu-item">
+            <i class="fa-solid fa-ticket" style="color: white;"></i>
+            <a class="menu-des" href="servicio.html">Servicios</a>
+        </div>
+        <div class="menu-item">
+            <i class="fa-solid fa-address-book" style="color: white;"></i>
+            <a class="menu-des" href="contacto.html">Contacto</a>
+        </div>
+    </div>
+    <!-- Final Menú desplegable -->
 
     <!-- Fondo Inicio -->
     <div class="container-fluid page-header">
@@ -221,6 +373,7 @@
         </div>
     </div>
     <!-- Footer Fin -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

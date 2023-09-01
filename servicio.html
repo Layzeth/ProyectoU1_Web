@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZATH | Servicio</title>
+  <link href="./css/style.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link href="./Imagen/favicon.png" rel="icon">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Iconos | Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- JavaScript -->
+  <script src="./JavaScript/jQuery v3.7.0.js"></script>
+  <!-- JavaScript Easing-->
+  <script src="./JavaScript/jQuery Easing.js"></script>
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+  <style>
+    body::-webkit-scrollbar {
+      width: 10px;
+      background: #24252a;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background-color: rgb(98, 147, 38);
+      border-radius: 30px;
+    }
+
+    /*Menu desplegable*/
+    #menu {
+      width: 150px;
+      background-color: rgb(98, 147, 38);
+      border-radius: 0px 60px 60px 0px;
+      padding: 20px 20px 20px 8px;
+      position: fixed;
+      z-index: 100;
+      left: -130px;
+    }
+
+    #menu a {
+      color: white;
+    }
+
+    #menu a:hover {
+      font-weight: bold;
+      text-decoration: none;
+      transition: text-decoration 0.3s ease;
+    }
+
+    .menu-des {
+      line-height: 70px;
+    }
+
+    .menu-item a {
+      position: relative;
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+    }
+
+    .menu-item a:hover,
+    .menu-item a:focus {
+      color: rgba(255, 255, 255, 0.4);
+      outline: none;
+    }
+
+    .menu-item a:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #ffffff;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: 0.3s;
+    }
+
+    .menu-item a:hover:before,
+    .menu-item a:focus:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+
+    #palabra {
+      padding: 10px;
+      background-color: rgb(98, 147, 38);
+      color: white;
+      font-size: 22px;
+    }
+
+    /* Estilos para el zoom */
+    .tarjeta {
+      height: 420px;
+      transition: transform 0.3s ease;
+    }
+
+    .tarjeta:hover {
+      transform: scale(1.15);
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Estilos para opacar las otras tarjetas */
+    .row:hover .tarjeta:not(:hover) {
+      opacity: 0.5;
+    }
+
+    .carousel-container {
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .carousel-nav {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .prev-btn,
+    .next-btn {
+      background-color: #333;
+      color: white;
+      border: none;
+      font-size: 20px;
+      padding: 10px 15px;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+
+    /* Oculta el carrusel con la clase hidden-carousel */
+    .hidden-carousel {
+      display: none;
+    }
+
+    /*estilos para los botones de la pagina de servicios */
+    .btn1 {
+      width: 276px;
+    }
+
+    .btn2 {
+      width: 178px;
+    }
+
+    .btn3 {
+      width: 250px;
+    }
+
+    /* Estilos del modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .content-ser {
+      width: 100% !important;
+      padding: 0px !important;
+      margin: 0px !important;
+    }
+
+    .hola {
+      width: 100% !important;
+      padding: 0px !important;
+      margin: 0px !important;
+    }
+  </style>
+  <script>
+    $(function () {
+      $("body").hide().fadeIn(1000);
+    });
+    // Menu desplegable
+    $(document).ready(function () {
+      $('#menu').hover(function () {
+        $(this).stop().animate({
+          left: "0px",
+        }, 500, 'easeInBack');
+      }, function () {
+        $(this).stop().animate({
+          left: "-130px",
+        }, 800, 'easeOutBack');
+      });
+    });
+
+    $(document).ready(function () {
+      function addShadow() {
+        $("#palabra").css("text-shadow", "3px 3px 5px rgba(255, 255, 255, 0.8)");
+        setTimeout(removeShadow, 1000); // Quita la sombra después de 1 segundo
+      }
+
+      function removeShadow() {
+        $("#palabra").css("text-shadow", "none");
+      }
+
+      setInterval(addShadow, 2000); // Llama a la función cada 5 segundos
+    });
+
+    /*Zoom de las imagenes*/
+    $(document).ready(function () {
+      $(".tarjeta").mouseenter(function () {
+        $(this).siblings(".tarjeta").css("opacity", "0.5");
+      });
+
+      $(".tarjeta").mouseleave(function () {
+        $(this).siblings(".tarjeta").css("opacity", "1");
+      });
+    });
+
+    /*Carrusel de imagenes*/
+    $(document).ready(function () {
+      const carousel = $(".carousel");
+      const slideWidth = $(".slide").outerWidth();
+      const totalSlides = $(".slide").length;
+      let currentPosition = 0;
+
+      function moveToSlide(position) {
+        carousel.css("transform", `translateX(${position}px)`);
+      }
+
+      $(".next-btn").click(function () {
+        currentPosition -= slideWidth;
+        if (currentPosition < -(slideWidth * (totalSlides - 1))) {
+          currentPosition = 0;
+        }
+        moveToSlide(currentPosition);
+      });
+
+      $(".prev-btn").click(function () {
+        currentPosition += slideWidth;
+        if (currentPosition > 0) {
+          currentPosition = -(slideWidth * (totalSlides - 1));
+        }
+        moveToSlide(currentPosition);
+      });
+
+      function autoSlide() {
+        currentPosition -= slideWidth;
+        if (currentPosition < -(slideWidth * (totalSlides - 1))) {
+          currentPosition = 0;
+        }
+        moveToSlide(currentPosition);
+      }
+
+      $(".slide").on("click", function () {
+        var phoneNumber = $(this).data("whatsapp");
+        var message = "hola estoy interesado de sus servicios"; // Mensaje predeterminado
+        if (phoneNumber) {
+          window.open("https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message), "_blank");
+        }
+      });
+
+      // Cambia la imagen cada 3 segundos (3000ms)
+      setInterval(autoSlide, 5000);
+
+      // Oculta el carrusel al hacer clic en la tarjeta del medio
+      $(".tarjeta:nth-child(2) a").click(function (event) {
+        event.preventDefault();
+        carouselContainer.toggleClass("hidden-carousel");
+      });
+    });
+
+    $(document).ready(function () {
+      $("#toggleButton").on("click", function () {
+        $("#textoModal").css("display", "block");
+      });
+
+      $("#closeModal").on("click", function () {
+        $("#textoModal").css("display", "none");
+      });
+    });
+
+    $(document).ready(function () {
+      $("#toggleButton1").on("click", function () {
+        $("#textoModal1").css("display", "block");
+      });
+
+      $("#closeModal1").on("click", function () {
+        $("#textoModal1").css("display", "none");
+      });
+    });
+
+    $(document).ready(function () {
+      $("#toggleButton2").on("click", function () {
+        $("#textoModal2").css("display", "block");
+      });
+
+      $("#closeModal2").on("click", function () {
+        $("#textoModal2").css("display", "none");
+      });
+    });
+
+    $(document).ready(function () {
+      $('#ocultar').hide();
+      // Al hacer clic en el botón
+      $("#ocultar-btn").on("click", function () {
+        // Mostrar u ocultar el carrusel
+        $('#ocultar').toggle();
+      }
+      );
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Inicio Barra informativa -->
+  <div class="container-fluid bg-light pt-3 d-none d-lg-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+          <div class="d-inline-flex align-items-center">
+            <p><i class="fa fa-envelope mr-2"></i>zathturismo@gmail.com</p>
+            <p class="text-body px-3">|</p>
+            <p><i class="fa fa-phone-alt mr-2"></i>+593 6721 3611</p>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center text-lg-right">
+          <div class="d-inline-flex align-items-center">
+            <a class="text-primary px-3" href="">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a class="text-primary px-3" href="">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a class="text-primary px-3" href="">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a class="text-primary px-3" href="">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a class="text-primary pl-3" href="">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Final Barra informativa -->
+
+  <!-- Inicio Barra Navegación -->
+  <div class="container-fluid position-relative nav-bar p-0">
+    <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+      <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
+        <a href="" class="navbar-brand">
+          <h1 class="m-0 text-primary"><span class="text-dark">ZATH </span>TURISMO</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+          <div class="navbar-nav ml-auto py-0">
+            <a href="index.html" class="nav-item nav-link">Inicio</a>
+            <a href="packages.html" class="nav-item nav-link">Paquetes</a>
+            <a href="actividad.html" class="nav-item nav-link">Actividades</a>
+            <a href="servicio.html" class="nav-item nav-link active">Servicios</a>
+            <a href="contacto.html" class="nav-item nav-link">Contacto</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- Inicio Barra Navegación -->
+
+  <!-- Inicio Menú desplegable -->
+  <div id="menu">
+    <div class="menu-item">
+      <i class="fa-solid fa-house" style="color: white;"></i>
+      <a class="menu-des" href="index.html">Inicio</a>
+    </div>
+    <div class="menu-item">
+      <i class="fa-solid fa-box-open" style="color: white;"></i>
+      <a class="menu-des" href="packages.html">Paquetes</a>
+    </div>
+    <div class="menu-item">
+      <i class="fa-solid fa-star" style="color: white;"></i>
+      <a class="menu-des" href="actividad.html">Actividades</a>
+    </div>
+    <div class="menu-item">
+      <i class="fa-solid fa-ticket" style="color: white;"></i>
+      <a class="menu-des" href="servicio.html">Servicios</a>
+    </div>
+    <div class="menu-item">
+      <i class="fa-solid fa-address-book" style="color: white;"></i>
+      <a class="menu-des" href="contacto.html">Contacto</a>
+    </div>
+  </div>
+  <!-- Final Menú desplegable -->
+
+  <!-- Fondo Inicio -->
+  <div class="container-fluid page-header">
+    <div class="container">
+      <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+        <h3 class="display-4 text-white text-uppercase">Servicios</h3>
+        <div class="d-inline-flex text-white">
+          <p class="m-0 text-uppercase"><a class="text-white" href="index.html">Inicio</a></p>
+          <i class="fa fa-angle-double-right pt-1 px-3"></i>
+          <p class="m-0 text-uppercase">Servicios</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fondo Fin -->
+
+  <!-- Inicion de los servicios -->
+  <div class="content-ser container-fluid">
+    <marquee id="palabra">OFERTA DE VIAJE A GALÁPAGOS 50% DE DESCUENTO A ECUATORIANOS</marquee>
+    <div class="hola container-fluid py-5">
+      <div class="container pt-5 pb-3">
+        <div class="text-center mb-3 pb-3">
+          <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Servicios</h6>
+          <h1>Tours y Servicios de Viajes</h1>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4">
+              <a href="https://www.es.kayak.com/vuelos/Estados-Unidos-US0/Galapagos-ECGA?bootRetry=true&r9ck=iq&gad=1&gclid=CjwKCAjw1YCkBhAOEiwA5aN4AaO1nuYHQp8704qSYBrpbHcnlp0rsq0z4vhpHvhKv4KwxhTtZrYSaBoCBM4QAvD_BwE"
+                target="_blank">
+                <img src="./Imagen/boloeto.jpg" alt="boletos" style="height: 250px; width: 275px;">
+              </a>
+              <div class="btn1 btn-group mb-2" role="group" aria-label="">
+                <button type="button" class="btn btn-primary" id="toggleButton">Boleto de entrada</button>
+              </div>
+              <!-- Modal -->
+              <div class="modal" id="textoModal">
+                <div class="modal-content">
+                  <span class="close" id="closeModal">&times;</span>
+                  <p>Reserva Flexible y Precios Sorprendentes. Compra tu Proximo Pasaje en Meses Sin Intereses.
+                    Aprovecha Estos Descuentos y Reserva tu Pasaje Flexible a Islas Galapagos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4">
+              <a>
+                <img src="./Imagen/guia.jpg" alt="guia turistica" style="height:250px;">
+              </a>
+              <div class="btn2 btn-group mb-2" role="group" aria-label="">
+                <button type="button" class="btn btn-primary" id="toggleButton1">Turismo</button>
+              </div>
+              <div class="btn2 btn-group mb-2" role="group" aria-label="">
+                <button type="button" class="btn btn-primary" id="ocultar-btn">Guías Turísticos</button>
+              </div>
+              <!-- Modal -->
+              <div class="modal" id="textoModal1">
+                <div class="modal-content">
+                  <span class="close" id="closeModal1">&times;</span>
+                  <p>GUÍA TURÍSTICA DE GALÁPAGOS, ECUADOR, 2021, Destino Galápagos, Cómo llegar a Galápagos,
+                    Qué actividades realizar en Galápagos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4">
+              <a href="https://www.tripadvisor.com.ar/SmartDeals-g294310-Galapagos_Islands-Hotel-Deals.html"
+                target="_blank">
+                <img src="./Imagen/hotel.jpg" alt="hotel" style="height:250px; width: 250px;">
+              </a>
+              <div class="btn3 btn-group mb-2" role="group" aria-label="">
+                <button type="button" class="btn btn-primary" id="toggleButton2">Reservacion de Hotel</button>
+              </div>
+              <!-- Modal -->
+              <div class="modal" id="textoModal2">
+                <div class="modal-content">
+                  <span class="close" id="closeModal2">&times;</span>
+                  <p>Grandes descuentos en hoteles de Galápagos, ec. Reserva online, paga en el hotel.
+                    Lee comentarios de clientes y escoge el mejor hotel para tu estancia.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Inicio de los servicios  -->
+
+        <!-- Inicio de carrusel -->
+        <div id="ocultar" class="carousel-container">
+          <div class="carousel">
+            <div class="slide" data-whatsapp="+593997076005"><img
+                src="Imagen/WhatsApp Image 2023-07-20 at 12.50.33 PM (1).jpeg" alt="Imagen 1"></div>
+            <div class="slide" data-whatsapp="+593967213611"><img
+                src="Imagen/WhatsApp Image 2023-07-20 at 12.50.33 PM.jpeg" alt="Imagen 2"></div>
+            <div class="slide" data-whatsapp="+593981269733"><img
+                src="Imagen/WhatsApp Image 2023-07-20 at 12.50.34 PM.jpeg" alt="Imagen 3"></div>
+          </div>
+          <div class="carousel-nav">
+            <button class="prev-btn">&#10094;</button>
+            <button class="next-btn">&#10095;</button>
+          </div>
+        </div>
+      </div>
+        <!-- Final de carrusel  -->
+
+        <!-- Footer Inicio -->
+        <div class="content-ser">
+          <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+            <div class="row pt-5">
+              <div class="col-lg-4 col-md-12 mb-5">
+                <a href="index.html" class="navbar-brand">
+                  <h1 class="text-primary"><span class="text-white">ZATH</span> TURISMO</h1>
+                </a>
+                <p class="text-justify">¡Prepárate para una aventura inolvidable en las Islas Galápagos! Explora, admira
+                  y maravíllate
+                  con la belleza incomparable de este destino único en el mundo.</p>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Síguenos en:</h6>
+                <div class="d-flex justify-content-start">
+                  <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                  <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                  <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-12 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Nuestros servicios</h5>
+                <div class="d-flex flex-column justify-content-start">
+                  <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Paquetes</a>
+                  <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Actividades</a>
+                  <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Servicios</a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-12 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contáctanos</h5>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Santo Domingo, Ecuador</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+593 6721 3611</p>
+                <p><i class="fa fa-envelope mr-2"></i>zathturismo@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+            style="border-color: rgba(256, 256, 256, .1) !important;">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <p class="m-0 text-white-50">Copyright &copy; <a href="#">ZATH TURISMO</a>. Todos los derechos
+                  reservados.</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Footer Fin -->
+        </div>
+</body>
+
+</html>

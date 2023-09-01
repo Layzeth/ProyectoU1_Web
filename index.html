@@ -10,10 +10,16 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./css/style.css">
     <!-- Iconos | Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- JavaScript -->
+    <script src="./JavaScript/jQuery v3.7.0.js"></script>
+    <!-- JavaScript Easing-->
+    <script src="./JavaScript/jQuery Easing.js"></script>
+    <!-- JavaScript Carousel-->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <title>ZATH | Inicio</title>
     <style>
         .fondo {
@@ -53,7 +59,261 @@
         .imagenLogro {
             text-align: center;
         }
+
+        /*Menu desplegable*/
+        #menu {
+            width: 150px;
+            background-color: rgb(98, 147, 38);
+            border-radius: 0px 60px 60px 0px;
+            padding: 20px 20px 20px 8px;
+            position: fixed;
+            z-index: 100;
+            left: -130px;
+        }
+
+        #menu a {
+            color: white;
+        }
+
+        #menu a:hover {
+            font-weight: bold;
+            text-decoration: none;
+            transition: text-decoration 0.3s ease;
+        }
+
+        .menu-des {
+            line-height: 70px;
+        }
+
+        .menu-item a {
+            position: relative;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+        }
+
+        .menu-item a:hover,
+        .menu-item a:focus {
+            color: rgba(255, 255, 255, 0.4);
+            outline: none;
+        }
+
+        .menu-item a:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ffffff;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: 0.3s;
+        }
+
+        .menu-item a:hover:before,
+        .menu-item a:focus:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        /*Zoom Sobre Nosotros*/
+        .img-zoom {
+            transition: transform 0.3s ease;
+        }
+
+        /*Zoom Actividades*/
+        .blog-item {
+            transition: transform 0.3s ease;
+        }
+
+        .blog-item:hover {
+            transform: scale(1.05);
+            /* Zoom al 105% al pasar el mouse por encima */
+        }
+
+        .text-animation {
+            transition: font-size 0.5s ease;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+
+        .btn-back-to-top {
+            background-color: rgb(98, 147, 38);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-back-to-top:hover {
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgb(98, 147, 38);
+            color: rgb(98, 147, 38);
+            text-decoration: none;
+        }
     </style>
+
+    <script>
+        $(function () {
+            $("body").hide().fadeIn(1000);
+        });
+        // Menu desplegable
+        $(document).ready(function () {
+            $('#menu').hover(function () {
+                $(this).stop().animate({
+                    left: "0px",
+                }, 500, 'easeInBack');
+            }, function () {
+                $(this).stop().animate({
+                    left: "-130px",
+                }, 800, 'easeOutBack');
+            });
+        });
+
+        // Zoom para las imagenes 'sobre nosotros'
+        $(document).ready(function () {
+            $('.img-zoom').mouseenter(function () {
+                $(this).css('transform', 'scale(1.1)');
+            });
+
+            $('.img-zoom').mouseleave(function () {
+                $(this).css('transform', 'scale(1)');
+            });
+        });
+
+        // Cambio de color y sombras en 'reconocimiento'
+        $(document).ready(function () {
+            function animateTextColor() {
+                $('.animate-text').each(function () {
+                    var currentColor = $(this).css('color');
+                    var newColor = currentColor === 'rgb(0, 0, 0)' ? 'white' : 'black';
+
+                    $(this).css({
+                        'color': newColor,
+                        'transition': 'color 1s ease' // La transición durará 1 segundo
+                    });
+                });
+            }
+
+            // Llama a la función cada 2 segundos para cambiar el color del texto
+            setInterval(animateTextColor, 2000);
+
+            $(document).ready(function () {
+                function animateTextProperties() {
+                    $('.animate-text').each(function () {
+                        var currentColor = $(this).css('color');
+                        var newColor = currentColor === 'rgb(0, 0, 0)' ? 'white' : 'black';
+                        var shadow = newColor === 'black' ? '2px 2px 5px #CCCCCC' : 'none';
+
+                        $(this).css({
+                            'color': newColor,
+                            'text-shadow': shadow,
+                            'transition': 'color 1s ease, text-shadow 1s ease' // La transición durará 1 segundo
+                        });
+                    });
+                }
+
+                function animateShadow() {
+                    $('.animate-text').each(function () {
+                        var currentShadow = $(this).css('text-shadow');
+                        var newShadow = currentShadow === 'none' ? '2px 2px 5px #CCCCCC' : 'none';
+
+                        $(this).css({
+                            'text-shadow': newShadow,
+                            'transition': 'text-shadow 1s ease' // La transición durará 1 segundo
+                        });
+                    });
+                }
+
+                // Llama a las funciones cada 2 segundos para cambiar el color y la sombra del texto
+                setInterval(function () {
+                    animateTextProperties();
+                    animateShadow();
+                }, 2000);
+            });
+        });
+
+        //Zoom en la tarjeta Actividades
+        $(document).ready(function () {
+            // Al pasar el mouse sobre una tarjeta, aplica el efecto de zoom
+            $('.blog-item').mouseenter(function () {
+                $(this).css('transform', 'scale(1.05)');
+            });
+
+            // Cuando el mouse sale de una tarjeta, restaura el tamaño original
+            $('.blog-item').mouseleave(function () {
+                $(this).css('transform', 'scale(1)');
+            });
+        });
+
+        // Botón volver arriba
+        $(document).ready(function () {
+            // Mostrar u ocultar el botón al desplazarse por la página
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $(".back-to-top").fadeIn();
+                } else {
+                    $(".back-to-top").fadeOut();
+                }
+            });
+
+            // Volver al inicio de la página cuando se hace clic en el botón
+            $(".btn-back-to-top").click(function (event) {
+                event.preventDefault();
+                $("html, body").animate({ scrollTop: 0 }, 800);
+            });
+        });
+
+        $(document).ready(function () {
+            function animateTextSize() {
+                // Seleccionar el elemento de texto
+                var textElement = $('.text-animation');
+
+                // Tamaño inicial y final del texto en píxeles
+                var initialSize = 28; // Puedes ajustar este valor según tus necesidades
+                var finalSize = 30;   // Puedes ajustar este valor según tus necesidades
+
+                // Duración de la animación de cambio de tamaño en milisegundos
+                var animationDuration = 2000; // 1 segundo
+
+                // Función para animar el texto
+                function animateText() {
+                    // Incrementar el tamaño y añadir sombra al texto
+                    textElement.animate({ fontSize: finalSize }, {
+                        duration: animationDuration,
+                        step: function (now) {
+                            var fontSize = now.toFixed(2); // Obtener el tamaño actualizado
+                            var shadowSize = fontSize / 10; // Calcular el tamaño de la sombra (puedes ajustar este valor)
+
+                            // Aplicar sombra al texto mientras se incrementa el tamaño
+                            textElement.css({
+                                'text-shadow': '0 0 ' + shadowSize + 'px rgba(0, 0, 0, 0.5)'
+                            });
+                        },
+                        complete: function () {
+                            // Al terminar la primera animación, remover la sombra y regresar al tamaño original
+                            textElement.css({ 'text-shadow': 'none', 'box-shadow': 'none' }).animate({ fontSize: initialSize }, animationDuration, function () {
+                                // Llamamos a la función recursivamente para hacer que la animación se repita
+                                animateText();
+                            });
+                        }
+                    });
+                }
+
+                // Iniciar la animación
+                animateText();
+            }
+
+            // Llamar a la función para comenzar la animación
+            animateTextSize();
+        });
+
+    </script>
 </head>
 
 <body>
@@ -93,12 +353,14 @@
     <!-- Final Barra informativa -->
 
     <!-- Inicio Barra Navegación -->
-    <div class="container-fluid position-relative nav-bar p-0">
+    <div class="menunav container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
-                    <h1 class="m-0 text-primary"><span class="text-dark">ZATH </span>TURISMO</h1>
+                    <h1 class="text-animation m-0 text-primary"><span
+                            class="text-dark text-animation">ZATH</span>TURISMO</h1>
                 </a>
+
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -114,7 +376,32 @@
             </nav>
         </div>
     </div>
-    <!-- Inicio Barra Navegación -->
+    <!-- Final Barra Navegación -->
+
+    <!-- Inicio Menú desplegable -->
+    <div id="menu">
+        <div class="menu-item">
+            <i class="fa-solid fa-house" style="color: white;"></i>
+            <a class="menu-des" href="index.html">Inicio</a>
+        </div>
+        <div class="menu-item">
+            <i class="fa-solid fa-box-open" style="color: white;"></i>
+            <a class="menu-des" href="packages.html">Paquetes</a>
+        </div>
+        <div class="menu-item">
+            <i class="fa-solid fa-star" style="color: white;"></i>
+            <a class="menu-des" href="actividad.html">Actividades</a>
+        </div>
+        <div class="menu-item">
+            <i class="fa-solid fa-ticket" style="color: white;"></i>
+            <a class="menu-des" href="servicio.html">Servicios</a>
+        </div>
+        <div class="menu-item">
+            <i class="fa-solid fa-address-book" style="color: white;"></i>
+            <a class="menu-des" href="contacto.html">Contacto</a>
+        </div>
+    </div>
+    <!-- Final Menú desplegable -->
 
     <!-- Inicio Fondo -->
     <div class="container-fluid p-0">
@@ -131,10 +418,37 @@
                         </div>
                     </div>
                 </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="./Imagen/Fondo.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">Tours & Actividades</h4>
+                            <h1 class="display-3 text-white mb-md-4">Conozca las mejores opciones y servicios turísticos
+                                aquí</h1>
+                            <a href="contacto.html" class="btn btn-primary py-md-3 px-md-5 mt-2">Contáctanos</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-prev-icon mb-n2"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-next-icon mb-n2"></span>
+                </div>
+            </a>
         </div>
     </div>
     <!-- Fin Fondo-->
+
+    <!-- Tu contenido de página aquí -->
+    <div class="back-to-top">
+        <a href="#" class="btn-back-to-top">Volver arriba</a>
+    </div>
+    <!-- Tu contenido de página aquí -->
 
     <!-- Inicio Sobre Nosotros -->
     <div class="container-fluid py-5">
@@ -155,10 +469,10 @@
                             buscan explorar y descubrir la maravilla natural de este paraíso insular.</p>
                         <div class="row mb-4">
                             <div class="col-6">
-                                <img class="img-fluid" src="./Imagen/Img00.jpg" alt="">
+                                <img class="img-fluid img-zoom" src="./Imagen/Img00.jpg" alt="">
                             </div>
                             <div class="col-6">
-                                <img class="img-fluid" src="./Imagen/Img04.jpg" alt="">
+                                <img class="img-fluid img-zoom" src="./Imagen/Img04.jpg" alt="">
                             </div>
                         </div>
                         <a href="packages.html" class="btn btn-primary btn-lg mt-1">Planes</a>
@@ -170,25 +484,26 @@
     <!-- Fin Sobre Nosotros -->
 
     <!-- Inicio Experiencia -->
-    <div class="reconocimiento container-fluid">
+    <div class="reconocimiento container-fluid mt-5">
         <div class="row justify-content-between">
             <div class="col-lg-3 col-sm-12">
                 <center><img class="imagenLogro" src="./Imagen/log0.png" alt=""></center>
-                <h3 class="letraReconocimiento"> 99% CLIENTES SATISFECHOS</h3>
+                <h3 class="letraReconocimiento animate-text">99% CLIENTES SATISFECHOS</h3>
             </div>
             <div class="col-lg-3 col-sm-12">
                 <center><img class="imagenLogro" src="./Imagen/log1.png" alt=""></center>
-                <h3 class="letraReconocimiento"> +999 CLIENTES ATENDIDOS</h3>
+                <h3 class="letraReconocimiento animate-text">+1000 CLIENTES ATENDIDOS</h3>
             </div>
             <div class="col-lg-3 col-sm-12">
                 <center><img class="imagenLogro" src="./Imagen/log2.png" alt=""></center>
-                <h3 class="letraReconocimiento"> +10 AÑOS DE EXPERIENCIA</h3>
+                <h3 class="letraReconocimiento animate-text">+10 AÑOS DE EXPERIENCIA</h3>
             </div>
         </div>
     </div>
+
     <!-- Fin Experiencia -->
 
-    <!-- Blog Start -->
+    <!-- Actividades Inicio -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
@@ -246,7 +561,7 @@
             </div>
         </div>
     </div>
-    <!-- Blog End -->
+    <!-- Actividades Final -->
 
     <!-- Footer Inicio -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
@@ -280,7 +595,6 @@
                 <p><i class="fa fa-phone-alt mr-2"></i>+593 6721 3611</p>
                 <p><i class="fa fa-envelope mr-2"></i>zathturismo@gmail.com</p>
             </div>
-
         </div>
     </div>
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
@@ -294,6 +608,10 @@
         </div>
     </div>
     <!-- Footer Fin -->
+
+    <!-- JavaScript Librerias -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
 </body>
 
