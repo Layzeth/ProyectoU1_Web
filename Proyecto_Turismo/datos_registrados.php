@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Favicon -->
+    <link href="./Imagen/favicon.png" rel="icon">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Iconos | Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- JavaScript -->
+    <script src="./JavaScript/jQuery v3.7.0.js"></script>
     <title>Datos Registrados</title>
     <style>
         body {
@@ -32,6 +43,7 @@
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+
     </style>
 </head>
 <body>
@@ -58,5 +70,9 @@
     
     echo "</table>";
     ?>
+
+    <div class="container mt-3">
+        <a href="packages.html" class="btn btn-primary"><i class="fas fa-arrow-left mr-2"></i>Volver a Inicio</a>
+    </div>
 </body>
 </html>

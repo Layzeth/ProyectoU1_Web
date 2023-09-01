@@ -14,8 +14,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="./JavaScript/jQuery v3.7.0.js"></script>
-    <script src="./JavaScript/jQuery Easing.js"></script>
+    <!--<script src="./JavaScript/jQuery v3.7.0.js"></script>
+    <script src="./JavaScript/jQuery Easing.js"></script>-->
     <title>ZATH | Contacto</title>
     <style>
         .text-primary {
@@ -118,6 +118,7 @@
                 }, 800, 'easeOutBack');
             });
         });
+
         $(document).ready(function () {
             $("#contactForm").submit(function (event) {
                 event.preventDefault();
@@ -153,9 +154,6 @@
                     Swal.fire('Por favor, ingresa un correo válido.')
                     return;
                 }
-
-                // Si todos los campos están válidos, puedes enviar el formulario aquí
-                // Agregar la lógica para enviar el formulario al servidor, si es necesario
 
                 // Mostrar una alerta de éxito (puedes personalizarla según tus necesidades)
                 Swal.fire(
@@ -285,28 +283,31 @@
                 <div class="col-lg-6">
                     <div class="contact-form bg-white" style="padding: 30px;">
                         <div id="success"></div>
-                        <form action="#" name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form action="proceso_datos.php" name="contactForm" id="contactForm" novalidate="novalidate"
+                            method="POST">
                             <div class="form-row">
                                 <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Nombre"
-                                        required="required" data-validation-required-message="Please enter your name" />
+                                    <input type="text" class="form-control p-4" id="name" name="name"
+                                        placeholder="Nombre" required="required"
+                                        data-validation-required-message="Please enter your name" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group col-sm-6">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Correo"
-                                        required="required"
+                                    <input type="email" class="form-control p-4" id="email" name="email"
+                                        placeholder="Correo" required="required"
                                         data-validation-required-message="Please enter your email" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="Asunto"
-                                    required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="text" class="form-control p-4" id="subject" name="subject"
+                                    placeholder="Asunto" required="required"
+                                    data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Mensaje"
-                                    required="required"
+                                <textarea class="form-control py-3 px-4" rows="5" id="message" name="message"
+                                    placeholder="Mensaje" required="required"
                                     data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>

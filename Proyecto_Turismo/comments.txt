@@ -1,0 +1,45 @@
+Nombre: Jair
+Comentario: Me encanta el servicio.
+
+Nombre: Lina 
+Comentario: Cinco estrellas, 10/10, muy buen servicio
+
+Nombre: Steeven
+Comentario: Me gusta la eficiencia, es rápido y seguro
+
+Nombre: Juan
+Comentario: Me gusta los precios, siempre son buenas las ofertas de viajes
+
+Nombre: María
+Comentario: Siempre eficientes, me gustó el servicio que ofrecen !!
+
+Nombre: Pedro
+Comentario: Me encata Galápagos, es un destino increible
+
+Nombre: Fernanda
+Comentario: Siempre he querido una oferta como esta
+
+Nombre: Lucas
+Comentario: Me encanta la vida silvestre y siempre ha querido visitar este destino, es una gran oportunidad, gracias!!
+
+Nombre: Wendy
+Comentario: Hora de visitar las Galápagos
+
+Nombre: Ximena
+Comentario: GRACIAS POR TODO!👌
+
+Nombre: Sheyla
+Comentario: Buenas promos
+
+Nombre: Anónimo
+Comentario: GRACIAS POR EL VIAJE
+
+Nombre: Ronny
+Comentario: Thanks you
+
+Nombre: Maly
+Comentario: Increible servicio!!
+
+Nombre: Luis
+Comentario: Grandes ofertas
+
