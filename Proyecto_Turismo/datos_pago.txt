@@ -1,27 +1,18 @@
-Nombre: Jair Steven
-Apellido: Sanchez
+Nombre: Maria
+Apellido: Zavala
 Ciudad: Santo Domingo
-Código Postal: 230104
-País: Ecuador
-Número de Tarjeta: 4111111111111111
-CVV: 123
-Monto a Pagar: 200
-
-Nombre: Steeven
-Apellido: Fierro
-Ciudad: Quito
-Código Postal: 230105
-País: Ecuador
-Número de Tarjeta: 4111111111111111
-CVV: 123
-Monto a Pagar: 70
-
-Nombre: Luis
-Apellido: Armijos
-Ciudad: Manta
-Código Postal: 234511
+Código Postal: 212
 País: Ecuador
 Número de Tarjeta: 411111111111111
-CVV: 235
-Monto a Pagar: 500
+CVV: 21
+Monto a Pagar: 21
+
+Nombre: Maria
+Apellido: Zavala
+Ciudad: Santo Domingo
+Código Postal: 212
+País: Ecuador
+Número de Tarjeta: 411111111111111
+CVV: 21
+Monto a Pagar: 21
 

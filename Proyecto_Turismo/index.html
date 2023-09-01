@@ -20,9 +20,6 @@
     <script src="./JavaScript/jQuery Easing.js"></script>
     <!-- JavaScript Carousel-->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <!-- Alertas Sweet Alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <title>ZATH | Inicio</title>
     <style>
         .fondo {
@@ -159,39 +156,14 @@
             color: rgb(98, 147, 38);
             text-decoration: none;
         }
-
-        #reviews {
-            margin-top: 30px;
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
-        }
-
-        .review {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .review-name {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .review-stars {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .review-text {
-            font-size: 16px;
-        }
     </style>
 
     <script>
         $(function () {
             $("body").hide().fadeIn(1000);
-
-            // Menú desplegable
+        });
+        // Menu desplegable
+        $(document).ready(function () {
             $('#menu').hover(function () {
                 $(this).stop().animate({
                     left: "0px",
@@ -201,8 +173,10 @@
                     left: "-130px",
                 }, 800, 'easeOutBack');
             });
+        });
 
-            // Zoom para las imagenes 'sobre nosotros'
+        // Zoom para las imagenes 'sobre nosotros'
+        $(document).ready(function () {
             $('.img-zoom').mouseenter(function () {
                 $(this).css('transform', 'scale(1.1)');
             });
@@ -210,8 +184,10 @@
             $('.img-zoom').mouseleave(function () {
                 $(this).css('transform', 'scale(1)');
             });
-            // Cambio de color y sombras en 'reconocimiento'
+        });
 
+        // Cambio de color y sombras en 'reconocimiento'
+        $(document).ready(function () {
             function animateTextColor() {
                 $('.animate-text').each(function () {
                     var currentColor = $(this).css('color');
@@ -299,11 +275,11 @@
                 var textElement = $('.text-animation');
 
                 // Tamaño inicial y final del texto en píxeles
-                var initialSize = 28;
-                var finalSize = 30;
+                var initialSize = 28; // Puedes ajustar este valor según tus necesidades
+                var finalSize = 30;   // Puedes ajustar este valor según tus necesidades
 
                 // Duración de la animación de cambio de tamaño en milisegundos
-                var animationDuration = 2000;
+                var animationDuration = 2000; // 1 segundo
 
                 // Función para animar el texto
                 function animateText() {
@@ -587,70 +563,6 @@
     </div>
     <!-- Actividades Final -->
 
-    <!-- Sección de Comentarios -->
-    <div class="container-fluid bg-light py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="text-center mb-4">Deja tu comentario</h2>
-                    <form id="comment-form">
-                        <div class="form-group">
-                            <label for="name">Nombre:</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="comment">Comentario:</label>
-                            <textarea class="form-control" id="comment" name="comment" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar Comentario</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="text-center">
-            <a href="view_comments.php" class="btn btn-primary">Ver Comentarios</a>
-        </div>
-    </div>
-    <!-- Fin Sección de Comentarios -->
-    <br><br><br><br>
-    <div class="container-fluid bg-light py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Deja tu reseña</h2>
-            <form id="review-form">
-                <div class="form-group">
-                    <label for="name">Nombre:</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="rating">Calificación:</label>
-                    <select class="form-control" id="rating" name="rating" required>
-                        <option value="5">⭐⭐⭐⭐⭐</option>
-                        <option value="4">⭐⭐⭐⭐</option>
-                        <option value="3">⭐⭐⭐</option>
-                        <option value="2">⭐⭐</option>
-                        <option value="1">⭐</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="review">Reseña:</label>
-                    <textarea class="form-control" id="review" name="review" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar Reseña</button>
-            </form>
-        </div>
-        <br>
-        <div class="container">
-            <h2 class="text-center mb-4">Reseñas de Usuarios</h2>
-            <div id="reviews">
-                <?php
-            $reviews = file_get_contents("reviews.txt");
-            $reviews = nl2br($reviews);
-            echo $reviews;
-            ?>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer Inicio -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
@@ -702,95 +614,5 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
 </body>
-
-<script>
-    $(document).ready(function () {
-        $("#comment-form").submit(function (event) {
-            event.preventDefault();
-            var formData = $(this).serialize();
-
-            $.ajax({
-                type: "POST",
-                url: "save_comment.php",
-                data: formData,
-                success: function (response) {
-                    if (response === "success") {
-                        Swal.fire({
-                            title: 'Gracias por tu comentario',
-                            text: 'Tu comentario ha sido enviado exitosamente',
-                            imageUrl: './Imagen/torti.png',
-                            imageWidth: 275,
-                            imageHeight: 200,
-                            imageAlt: 'Custom image',
-                        })
-                        var name = $("#name").val();
-                        var comment = $("#comment").val();
-                        var newComment = '<div class="comment"><strong>' + name + '</strong><br>' + comment + '</div>';
-                        $(".text-center").before(newComment);
-                        $("#name").val("");
-                        $("#comment").val("");
-                    } else {
-                        Swal.fire({
-                            title: 'Gracias por tu comentario',
-                            text: 'Tu comentario ha sido enviado exitosamente',
-                            imageUrl: './Imagen/torti.png',
-                            imageWidth: 275,
-                            imageHeight: 200,
-                            imageAlt: 'Custom image',
-                        })
-                    }
-                },
-                error: function () {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Algo salió mal!',
-                    })
-                }
-            });
-        });
-    });
-
-    $(document).ready(function () {
-        $("#review-form").submit(function (event) {
-            event.preventDefault();
-            var formData = $(this).serialize();
-
-            $.ajax({
-                type: "POST",
-                url: "save_review.php",
-                data: formData,
-                success: function (response) {
-                    if (response === "success") {
-                        var name = $("#name").val();
-                        var rating = $("#rating").val();
-                        var stars = "⭐".repeat(rating);
-                        var review = $("#review").val();
-                        var newReview = '<div class="review"><strong>' + name + '</strong> - ' + stars + '<br>' + review + '</div>';
-                        $("#reviews").prepend(newReview);
-                        $("#name").val("");
-                        $("#rating").val("");
-                        $("#review").val("");
-                        //alerta de reseña exitosa
-                        Swal.fire({
-                            title: 'Gracias por tu reseña',
-                            text: 'Tu reseña ha sido enviada exitosamente',
-                            imageUrl: './Imagen/foca.png',
-                            imageWidth: 230,
-                            imageHeight: 200,
-                            imageAlt: 'Custom image',
-                        })
-                    } else {
-                        alert("Hubo un error al guardar la reseña.");
-                    }
-                },
-                error: function () {
-                    alert("Hubo un error al guardar la reseña.");
-                }
-            });
-        });
-    });
-
-</script>
 
 </html>

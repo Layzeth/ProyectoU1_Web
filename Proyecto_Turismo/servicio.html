@@ -24,7 +24,6 @@
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-  <script src="./JavaScript/conteo.js"></script>
 
   <style>
     body::-webkit-scrollbar {
@@ -351,40 +350,6 @@
       }
       );
     });
-
-    $(document).ready(function () {
-      $(".tarjeta").click(function () {
-        var clicks = $(this).data("clicks");
-        clicks++;
-        $(this).data("clicks", clicks);
-
-        // Aquí puedes realizar acciones adicionales si es necesario, como redireccionar a una página
-
-        // Actualizar el contador en el servidor
-        updateClickCount($(this).data("whatsapp"), clicks);
-      });
-
-      function updateClickCount(phoneNumber, clicks) {
-        // Envía una solicitud AJAX al servidor para actualizar el contador
-        // Puedes usar jQuery para enviar la solicitud o utilizar la API fetch de JavaScript
-        // Aquí tienes un ejemplo utilizando jQuery:
-        $.post("update_clicks.php", { phoneNumber: phoneNumber, clicks: clicks }, function (data) {
-          // Puedes mostrar un mensaje de éxito o realizar otras acciones si es necesario
-        });
-      }
-    });
-
-function contabilizar(identificador) {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      // Maneja la respuesta si es necesario
-    }
-  };
-  xmlhttp.open("GET", "contabilizar.php?tarjeta=" + encodeURIComponent(identificador), true);
-  xmlhttp.send();
-}
-
   </script>
 </head>
 
@@ -499,13 +464,13 @@ function contabilizar(identificador) {
         </div>
         <div class="row">
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4 ">
+            <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4">
               <a href="https://www.es.kayak.com/vuelos/Estados-Unidos-US0/Galapagos-ECGA?bootRetry=true&r9ck=iq&gad=1&gclid=CjwKCAjw1YCkBhAOEiwA5aN4AaO1nuYHQp8704qSYBrpbHcnlp0rsq0z4vhpHvhKv4KwxhTtZrYSaBoCBM4QAvD_BwE"
                 target="_blank">
                 <img src="./Imagen/boloeto.jpg" alt="boletos" style="height: 250px; width: 275px;">
               </a>
               <div class="btn1 btn-group mb-2" role="group" aria-label="">
-                <button type="button" class="btn btn-primary" id="toggleButton" onclick="contabilizar('tarjeta1')">Boleto de entrada</button>
+                <button type="button" class="btn btn-primary" id="toggleButton">Boleto de entrada</button>
               </div>
               <!-- Modal -->
               <div class="modal" id="textoModal">
@@ -519,15 +484,15 @@ function contabilizar(identificador) {
           </div>
 
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4" >
+            <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4">
               <a>
                 <img src="./Imagen/guia.jpg" alt="guia turistica" style="height:250px;">
               </a>
               <div class="btn2 btn-group mb-2" role="group" aria-label="">
-                <button type="button" class="btn btn-primary" id="toggleButton1" onclick="contabilizar('tarjeta1')">Turismo</button>
+                <button type="button" class="btn btn-primary" id="toggleButton1">Turismo</button>
               </div>
               <div class="btn2 btn-group mb-2" role="group" aria-label="">
-                <button type="button" class="btn btn-primary" id="ocultar-btn" >Guías Turísticos</button>
+                <button type="button" class="btn btn-primary" id="ocultar-btn">Guías Turísticos</button>
               </div>
               <!-- Modal -->
               <div class="modal" id="textoModal1">
@@ -541,13 +506,13 @@ function contabilizar(identificador) {
           </div>
 
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4" >
+            <div class="tarjeta service-item bg-white text-center mb-2 py-5 px-4">
               <a href="https://www.tripadvisor.com.ar/SmartDeals-g294310-Galapagos_Islands-Hotel-Deals.html"
                 target="_blank">
                 <img src="./Imagen/hotel.jpg" alt="hotel" style="height:250px; width: 250px;">
               </a>
               <div class="btn3 btn-group mb-2" role="group" aria-label="">
-                <button type="button" class="btn btn-primary" id="toggleButton2" onclick="contabilizar('tarjeta1')">Reservacion de Hotel</button>
+                <button type="button" class="btn btn-primary" id="toggleButton2">Reservacion de Hotel</button>
               </div>
               <!-- Modal -->
               <div class="modal" id="textoModal2">
@@ -578,77 +543,55 @@ function contabilizar(identificador) {
           </div>
         </div>
       </div>
-      <!-- Final de carrusel  -->
+        <!-- Final de carrusel  -->
 
-      <!-- Footer Inicio -->
-      <div class="content-ser">
-        <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
-          <div class="row pt-5">
-            <div class="col-lg-4 col-md-12 mb-5">
-              <a href="index.html" class="navbar-brand">
-                <h1 class="text-primary"><span class="text-white">ZATH</span> TURISMO</h1>
-              </a>
-              <p class="text-justify">¡Prepárate para una aventura inolvidable en las Islas Galápagos! Explora, admira
-                y maravíllate
-                con la belleza incomparable de este destino único en el mundo.</p>
-              <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Síguenos en:</h6>
-              <div class="d-flex justify-content-start">
-                <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+        <!-- Footer Inicio -->
+        <div class="content-ser">
+          <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+            <div class="row pt-5">
+              <div class="col-lg-4 col-md-12 mb-5">
+                <a href="index.html" class="navbar-brand">
+                  <h1 class="text-primary"><span class="text-white">ZATH</span> TURISMO</h1>
+                </a>
+                <p class="text-justify">¡Prepárate para una aventura inolvidable en las Islas Galápagos! Explora, admira
+                  y maravíllate
+                  con la belleza incomparable de este destino único en el mundo.</p>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Síguenos en:</h6>
+                <div class="d-flex justify-content-start">
+                  <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                  <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                  <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-12 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Nuestros servicios</h5>
+                <div class="d-flex flex-column justify-content-start">
+                  <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Paquetes</a>
+                  <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Actividades</a>
+                  <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Servicios</a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-12 mb-5">
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contáctanos</h5>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Santo Domingo, Ecuador</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+593 6721 3611</p>
+                <p><i class="fa fa-envelope mr-2"></i>zathturismo@gmail.com</p>
               </div>
             </div>
-            <div class="col-lg-4 col-md-12 mb-5">
-              <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Nuestros servicios</h5>
-              <div class="d-flex flex-column justify-content-start">
-                <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Paquetes</a>
-                <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Actividades</a>
-                <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Servicios</a>
+          </div>
+          <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+            style="border-color: rgba(256, 256, 256, .1) !important;">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <p class="m-0 text-white-50">Copyright &copy; <a href="#">ZATH TURISMO</a>. Todos los derechos
+                  reservados.</a>
+                </p>
               </div>
             </div>
-            <div class="col-lg-4 col-md-12 mb-5">
-              <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contáctanos</h5>
-              <p><i class="fa fa-map-marker-alt mr-2"></i>Santo Domingo, Ecuador</p>
-              <p><i class="fa fa-phone-alt mr-2"></i>+593 6721 3611</p>
-              <p><i class="fa fa-envelope mr-2"></i>zathturismo@gmail.com</p>
-            </div>
           </div>
+          <!-- Footer Fin -->
         </div>
-        <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
-          style="border-color: rgba(256, 256, 256, .1) !important;">
-          <div class="row">
-            <div class="col-lg-12 text-center">
-              <p class="m-0 text-white-50">Copyright &copy; <a href="#">ZATH TURISMO</a>. Todos los derechos
-                reservados.</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- Footer Fin -->
-      </div>
 </body>
-<script>
-  $(document).ready(function () {
-      $(".tarjeta").click(function () {
-          var clicks = $(this).data("clicks");
-          clicks++;
-          $(this).data("clicks", clicks);
 
-          // Aquí puedes realizar acciones adicionales si es necesario, como redireccionar a una página
-
-          // Actualizar el contador en el servidor
-          updateClickCount($(this).data("whatsapp"), clicks);
-      });
-
-      function updateClickCount(phoneNumber, clicks) {
-          // Envía una solicitud AJAX al servidor para actualizar el contador
-          // Puedes usar jQuery para enviar la solicitud o utilizar la API fetch de JavaScript
-          // Aquí tienes un ejemplo utilizando jQuery:
-          $.post("update_clicks.php", { phoneNumber: phoneNumber, clicks: clicks }, function (data) {
-              // Puedes mostrar un mensaje de éxito o realizar otras acciones si es necesario
-          });
-      }
-   });
-</script>
 </html>
